@@ -10,12 +10,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.todo.R
+import com.example.todo.ui.screens.list.ListAppBar
 
 @Composable
 fun ListScreen(
     navigateToTaskScreen: (Int) -> Unit
 ) {
     Scaffold(
+        topBar = {
+            ListAppBar()
+        },
         content = {},
         floatingActionButton = {
             ListFab(onFabClicked = navigateToTaskScreen)
