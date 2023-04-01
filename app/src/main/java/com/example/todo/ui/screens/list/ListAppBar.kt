@@ -65,7 +65,10 @@ fun DefaultListAppBar(
 ) {
     TopAppBar(
         title = {
-            Text(text = "Tasks", color = MaterialTheme.colors.topAppBarContentColor)
+            Text(
+                text = stringResource(id = R.string.list_screen_title),
+                color = MaterialTheme.colors.topAppBarContentColor
+            )
         },
         actions = {
             ListAppBarActions(
@@ -194,7 +197,7 @@ fun SearchAppBar(
             placeholder = {
                 Text(
                     modifier = Modifier.alpha(ContentAlpha.medium),
-                    text = "Search",
+                    text = stringResource(id = R.string.search_placeholder),
                     color = Color.White
                 )
             },
@@ -211,7 +214,7 @@ fun SearchAppBar(
                 ) {
                     Icon(
                         imageVector = Icons.Filled.Search,
-                        contentDescription = "Search Icon",
+                        contentDescription = stringResource(id = R.string.search_icon),
                         tint = MaterialTheme.colors.topAppBarContentColor
                     )
 
@@ -226,10 +229,9 @@ fun SearchAppBar(
                                 trailingIconState = TrailingIconState.READY_TO_CLOSE
                             }
                             TrailingIconState.READY_TO_CLOSE -> {
-                                if (text.isNotEmpty()){
+                                if (text.isNotEmpty()) {
                                     onTextChange("")
-                                }
-                                else{
+                                } else {
                                     onCloseClicked()
                                     trailingIconState = TrailingIconState.READY_TO_DELETE
                                 }
@@ -239,7 +241,7 @@ fun SearchAppBar(
                 ) {
                     Icon(
                         imageVector = Icons.Filled.Close,
-                        contentDescription = "Close Icon",
+                        contentDescription = stringResource(id = R.string.close_icon),
                         tint = MaterialTheme.colors.topAppBarContentColor
                     )
                 }

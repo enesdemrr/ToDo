@@ -3,6 +3,8 @@ package com.example.todo.ui.theme
 import androidx.compose.material.Colors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.DarkGray
+import androidx.compose.ui.graphics.Color.Companion.LightGray
 
 val Purple200 = Color(0xFFBB86FC)
 val Purple500 = Color(0xFF6200EE)
@@ -19,9 +21,17 @@ val MediumPriorityColor = Color(0xFFFFc114)
 val HighPriorityColor = Color(0xFFFF4646)
 val NonePriorityColor = Color(0xFFFFFFFF)
 
+val Colors.taskItemTextColor: Color
+    @Composable
+    get() = if (isLight) DarkGray else LightGray
+
+val Colors.taskItemBackgroundColor: Color
+    @Composable
+    get() = if (isLight) Color.White else DarkGray
+
 val Colors.topAppBarContentColor: Color
-@Composable
-get() = if (isLight) Color.White else lightGray
+    @Composable
+    get() = if (isLight) Color.White else lightGray
 
 val Colors.topAppBarBackgroundContentColor: Color
     @Composable
