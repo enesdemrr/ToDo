@@ -2,6 +2,8 @@ package com.example.todo.ui.screens.list
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -17,9 +19,24 @@ import com.example.todo.data.models.Priority
 import com.example.todo.data.models.ToDoTask
 import com.example.todo.ui.theme.*
 
+@ExperimentalMaterialApi
 @Composable
-fun ListContent() {
-
+fun ListContent(
+    tasks: List<ToDoTask>,
+    navigateToScreen: (taskId: Int) -> Unit
+) {
+    LazyColumn {
+        items(
+            items = tasks,
+            key = { task ->
+                task.id
+            }) { task ->
+            TaskItem(
+                toDoTask = task,
+                navigateToScreen = navigateToScreen
+            )
+        }
+    }
 }
 
 @ExperimentalMaterialApi
